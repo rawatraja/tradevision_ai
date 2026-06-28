@@ -1,7 +1,7 @@
 from datetime import datetime
 
 
-def get_market_data(symbol):
+def get_market(symbol):
 
     return {
         "symbol": symbol,

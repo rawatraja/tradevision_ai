@@ -1,5 +1,5 @@
 import streamlit as st
-from data import get_market
+from services.market_service import get_market
 
 market = get_market("NIFTY")
 
