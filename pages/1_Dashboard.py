@@ -1,11 +1,11 @@
 import streamlit as st
-from providers.factory import get_provider
+from data import get_market
 
-# Get the active data provider
-provider = get_provider()
+market = get_market("NIFTY")
 
-# Fetch market data
-market = provider.get_market_data("NIFTY")
+spot = market["spot"]
+change = market["change"]
+updated = market["time"]
 
 st.title("📊 Dashboard")
 
@@ -13,11 +13,11 @@ st.success("Dashboard page is working!")
 
 st.metric(
     label="Spot Price",
-    value=market["spot"],
-    delta=market["change"]
+    value=spot,
+    delta=change
 )
 
-st.write(f"Last Updated: {market['time']}")
+st.caption(f"Updated: {updated}")
 
 st.divider()
 
